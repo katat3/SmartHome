@@ -18,9 +18,6 @@ class Device:
         else:
             print(f'({self.name}) is already turned on.')
 
-
-    def run(self, seconds: int) -> None:
-        if self.turned_on:
-            print(f'Running ({self.name}) for {seconds} seconds.')
-        else:
-            print(f'A mystical force whispers: "Turn on your ({self.name}) first.')
+    def get_state(self) -> str:
+        state = "ON" if self.turned_on else "OFF"
+        return f"{self.name} in {self.location} | statues: {state}"
