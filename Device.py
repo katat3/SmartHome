@@ -4,20 +4,20 @@ class Device:
         self.location = location
         self.turned_on: bool = False
 
-    def turn_on(self) -> None:
+    def turn_on(self):
         if self.turned_on:
             print(f'({self.name}) is already turned on.')
         else:
             self.turned_on = True
             print(f'({self.name}) is now turned on.')
 
-    def turn_off(self) -> None:
+    def turn_off(self):
         if self.turned_on:
             self.turned_on = False
             print(f'({self.name}) is now turned off.')
         else:
             print(f'({self.name}) is already turned on.')
 
-    def get_state(self) -> str:
+    def get_state(self):
         state = "ON" if self.turned_on else "OFF"
         return f"{self.name} in {self.location} | statues: {state}"

@@ -14,7 +14,7 @@ class Light(Device):
         else:
             print(f'{self.name} cannot set because {self.name} is currently OFF.')
 
-    def get_state(self) -> str:
+    def get_state(self):
         state =  super().get_state()
         return f'{state} | Brightness: {self.brightness} | Color: {self.color_mode} '
 
@@ -42,12 +42,12 @@ class Curtain(Device):
             self.opening_percentage = 100
             print(f'{self.name} is now OPEN')
         else:
-            print(f'{self.name} cannot open because {self.name} is currently OFF.')
+            print(f'{self.name} cannot open because {self.name} is already OPEN.')
 
-    def close(self):
+    def closed(self):
         if self.turned_on:
             self.opening_percentage = 0
-            print(f'{self.name} is now CLOSE')
+            print(f'{self.name} is now CLOSED')
         else:
-            print(f'{self.name} cannot close because {self.name} is currently OFF.')
+            print(f'{self.name} cannot close because {self.name} is already CLOSED.')
 
