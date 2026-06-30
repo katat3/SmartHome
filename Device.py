@@ -2,7 +2,7 @@ class Device:
     def __init__(self, name: str, location: str):
         self.name = name
         self.location = location
-        self.turned_on: bool = False
+        self.turned_on = False
 
     def turn_on(self):
         if self.turned_on:
@@ -20,4 +20,4 @@ class Device:
 
     def get_state(self):
         state = "ON" if self.turned_on else "OFF"
-        return f"{self.name} in {self.location} | statues: {state}"
+        return f"{self.name} in {self.location} | Statues: {state}"
