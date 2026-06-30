@@ -1,4 +1,5 @@
 from Appliances import Light, CleaningRobot, Curtain, AirConditioner
+from Device import Device
 from SmartHomeSystem import SmartHomeSystem
 
 def main():
@@ -43,7 +44,7 @@ def main():
 
     print("Current System State")
     for device in my_home.devices:
-        print(device.get.state())
+        print(device.get_state())
 
 if __name__ == "__main__":
     main()
