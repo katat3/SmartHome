@@ -36,15 +36,31 @@ def main():
     my_home.add_device(bedroom_curtain)
     my_home.add_device(cleaning_robot)
 
-    my_home.home_mode()
-    my_home.gaming_mode()
-    my_home.pre_sleep_mode()
-    my_home.sleep_mode()
-    my_home.check_robot_schedule()
+    print("Welcome to the Smart Home System")
+    command = {
+        "1": my_home.home_mode(),
+        "2": my_home.gaming_mode(),
+        "3": my_home.pre_sleep_mode() ,
+        "4": my_home.sleep_mode() }
 
-    print("\nCurrent System State\n")
-    for device in my_home.devices:
-        print(device.get_state())
+    while True:
+        print("\nAvailable Mode:")
+        print("1. Home Mode | 2. Gaming Mode | 3. Pre-Sleep Mode | 4. Sleep Mode | S. Current System State | E. Exit ")
+        choice = input("Enter your choice: ").strip().lower()
+
+        if choice == "e":
+            print("The system is shutting down. Goodbye!")
+            break
+
+        if choice == "s":
+            for device in my_home.devices:
+                print(device.get_state())
+
+        if choice in command:
+            command[choice]()
+        else:
+            print("Sorry, I did not understand. Please try again.")
+
 
 if __name__ == "__main__":
     main()
