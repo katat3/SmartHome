@@ -42,7 +42,7 @@ def main():
     my_home.sleep_mode()
     my_home.check_robot_schedule()
 
-    print("Current System State")
+    print("\nCurrent System State\n")
     for device in my_home.devices:
         print(device.get_state())
 

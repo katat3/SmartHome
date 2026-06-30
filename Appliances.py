@@ -49,7 +49,9 @@ class Curtain(Device):
                 self.opening_percentage = 100
                 print(f'{self.name} is now OPEN')
         else:
-            print(f'{self.name} cannot open because {self.name} is already OPEN.')
+            self.turn_on()
+            self.opening_percentage = 100
+            print(f'{self.name} is now OPEN')
 
     def closed(self):
         if self.turned_on:
@@ -59,7 +61,9 @@ class Curtain(Device):
                 self.opening_percentage = 0
                 print(f'{self.name} is now CLOSED')
         else:
-            print(f'{self.name} cannot close because {self.name} is OFF.')
+            self.turn_on()
+            self.opening_percentage = 0
+            print(f'{self.name} is now CLOSED')
 
     def get_state(self):
         state = super().get_state()
