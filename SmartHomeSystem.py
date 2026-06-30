@@ -1,4 +1,4 @@
-from Appliances import Light, AirConditioner, Curtain
+from Appliances import Light, AirConditioner, Curtain, CleaningRobot
 from datetime import datetime, timedelta
 
 class SmartHomeSystem:
@@ -8,6 +8,19 @@ class SmartHomeSystem:
 
     def add_device(self, device):
             self.devices.append(device)
+
+    def check_robot_schedule(self):
+        if datetime.now().hour == 14:
+            for device in self.devices:
+                if isinstance(device, CleaningRobot):
+                    if not device.turned_on:
+                        device.turn_on()
+                        device.start_cleaning()
+
+        elif datetime.now().hour == 16:
+            for device in self.devices:
+                if isinstance(device, CleaningRobot) and device.turned_on:
+                    device.return_to_base()
 
     #Home mode
     def home_mode(self):
@@ -32,6 +45,7 @@ class SmartHomeSystem:
                 else:
                     device.turn_off()
 
+    #pre sleep mode
     def pre_sleep_mode(self):
         print("PRE SLEEP MODE activated")
         for device in self.devices:
@@ -49,6 +63,7 @@ class SmartHomeSystem:
                 if isinstance(device, Curtain):
                     device.closed()
 
+    #gaming mode
     def gaming_mode(self):
         print("GAME MODE activated")
         for device in self.devices:
@@ -67,6 +82,7 @@ class SmartHomeSystem:
             if isinstance(device, Curtain):
                 device.closed()
 
+    #sleep mode
     def sleep_mode(self):
         print("SLEEP MODE activated")
         for device in self.devices:

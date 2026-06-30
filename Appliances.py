@@ -65,3 +65,16 @@ class Curtain(Device):
         state = super().get_state()
         return f'{state} | Opening Percentage: {self.opening_percentage} %'
 
+class CleaningRobot(Device):
+    def __init__(self, name, location):
+        super().__init__(name, location)
+
+    def start_cleaning(self):
+        if self.turned_on:
+            print(f'{self.name} is now moving around to clean.')
+        else:
+            print(f'{self.name} cannot start because {self.name} is currently OFF.')
+
+    def return_to_base(self):
+        print(f'{self.name} is returning to the charging base.')
+        self.turn_off()
