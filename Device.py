@@ -16,7 +16,7 @@ class Device:
             self.turned_on = False
             print(f'({self.name}) is now turned off.')
         else:
-            print(f'({self.name}) is already turned on.')
+            print(f'({self.name}) is already turned off.')
 
     def get_state(self):
         state = "ON" if self.turned_on else "OFF"

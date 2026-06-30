@@ -26,7 +26,7 @@ class SmartHomeSystem:
     def home_mode(self):
         current_hour = datetime.now().hour
         night_time = current_hour >= 18 or current_hour < 7
-        print("HOME MODE activated")
+        print("\nHOME MODE activated\n")
 
         for device in self.devices:
             if isinstance(device, AirConditioner):
@@ -47,7 +47,7 @@ class SmartHomeSystem:
 
     #pre sleep mode
     def pre_sleep_mode(self):
-        print("PRE SLEEP MODE activated")
+        print("\nPRE SLEEP MODE activated\n")
         for device in self.devices:
             if isinstance(device, Light):
                 if device.location == 'Bedroom' and device.light_type == 'Lamp':
@@ -55,17 +55,17 @@ class SmartHomeSystem:
                     device.set_mode(30, "Warm Yellow")
                 else:
                     device.turn_off()
-                if isinstance(device, AirConditioner):
+            if isinstance(device, AirConditioner):
                     if device.location == 'Bedroom':
                         device.turn_on()
                     else:
                         device.turn_off()
-                if isinstance(device, Curtain):
+            if isinstance(device, Curtain):
                     device.closed()
 
     #gaming mode
     def gaming_mode(self):
-        print("GAME MODE activated")
+        print("\nGAME MODE activated\n")
         for device in self.devices:
             if isinstance(device, Light):
                 if device.location == 'Study':
@@ -84,11 +84,16 @@ class SmartHomeSystem:
 
     #sleep mode
     def sleep_mode(self):
-        print("SLEEP MODE activated")
+        print("\nSLEEP MODE activated\n")
         for device in self.devices:
-            device.turn_off()
             if isinstance(device, Curtain):
                 device.closed()
+            if isinstance(device, Light):
+                device.turn_off()
+            if isinstance(device, AirConditioner):
+                if device.location != 'Bedroom':
+                    device.turn_off()
+
 
 
 
