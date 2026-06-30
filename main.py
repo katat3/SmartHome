@@ -38,10 +38,10 @@ def main():
 
     print("Welcome to the Smart Home System")
     command = {
-        "1": my_home.home_mode(),
-        "2": my_home.gaming_mode(),
-        "3": my_home.pre_sleep_mode() ,
-        "4": my_home.sleep_mode() }
+        "1": my_home.home_mode,
+        "2": my_home.gaming_mode,
+        "3": my_home.pre_sleep_mode ,
+        "4": my_home.sleep_mode }
 
     while True:
         print("\nAvailable Mode:")
