@@ -20,7 +20,7 @@ def main():
     study_curtain = Curtain("Study Curtain", "Curtain")
     bedroom_curtain = Curtain("Bedroom Curtain", "Curtain")
 
-    clearning_robot = CleaningRobot("Clearning Robot", "Living Room")
+    cleaning_robot = CleaningRobot("Cleaning Robot", "Living Room")
 
     my_home.add_device(living_room_lamp)
     my_home.add_device(living_room_ceiling_light)
@@ -34,7 +34,7 @@ def main():
     my_home.add_device(living_room_curtain)
     my_home.add_device(study_curtain)
     my_home.add_device(bedroom_curtain)
-    my_home.add_device(clearning_robot)
+    my_home.add_device(cleaning_robot)
 
     my_home.home_mode()
     my_home.gaming_mode()
